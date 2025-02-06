@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:49:17 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/28 15:14:32 by mneller          ###   ########.fr       */
+/*   Updated: 2025/01/30 13:44:26 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,31 @@ size_t ft_strlen(char *str)
     while (str[i])
         i++;
     return (i);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	if (count != 0 && size > SIZE_MAX / count)
+		return (NULL);
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count * size);
+	return (ptr);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*c;
+	size_t	i;
+
+	c = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		c[i] = '\0';
+		i++;
+	}
 }

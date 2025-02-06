@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 14:57:08 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/28 13:04:52 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 09:27:36 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void pb(t_push_swap *ps)
 {
     int i;
 
-    i = 0;
     if (ps->stack_a->size == 0)
         return;
     i = ps->stack_b->size;

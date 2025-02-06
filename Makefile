@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ./src/main.c ./src/struct_utils.c ./src/fill_stacks.c ./src/utils.c \
 		./src/ft_split.c ./src/validation.c ./src/print_stack.c ./src/swap.c \
-		./src/push.c ./src/sorting.c ./src/rotate.c
+		./src/push.c ./src/sorting.c ./src/rotate.c ./src/chunks.c ./src/utils_sort.c \
+		./src/chunks_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

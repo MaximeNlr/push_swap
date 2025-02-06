@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:54:47 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/28 16:10:46 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 17:04:09 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,39 +52,33 @@ void sort_5(t_push_swap *ps)
     {
         move_smallest(ps);
         move_smallest(ps);
-        print_stack_b(ps);
-        print_stack_a(ps);
         sort_3(ps);
-        print_stack_a(ps);
         pa(ps);
-        print_stack_a(ps);
-         pa(ps);
-        print_stack_a(ps);
+        pa(ps);
     }
 }
 
-void move_smallest(t_push_swap *ps)
+void sort(t_push_swap *ps)
 {
-    int smallest;
-    int smallest_index;
-    int i;
-
-    smallest = INT_MAX;
-    smallest_index = -1;
-    i = 0;
-    while (i < ps->stack_a->size)
+    int half_size;
+    int chunk_size;
+    int *moved;
+    
+    moved = init_moved(ps->stack_a->capacity);
+    if (!moved)
     {
-        if (ps->stack_a->data[i] < smallest)
-        {
-            smallest = ps->stack_a->data[i];
-            smallest_index = i;
-        }
-        i++;
+        write (1, "Erreur lors de l'allocation de memoire de moved\n", 48);
+        return;
     }
-    while (smallest_index > 0)
+    half_size = ps->stack_a->size / 2;
+    chunk_size = half_size / 2;
+    while (ps->stack_a->size > 0)
     {
-        ra(ps);
-        smallest_index--;
+        move_chunk(ps, chunk_size, moved);
     }
-    pb(ps);
+    while (ps->stack_b->size > 0)
+    {
+        find_push_max(ps); // Trouve le max de B et le push dans A
+    }
+    free(moved);
 }

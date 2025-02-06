@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 20:24:14 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/23 22:28:06 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/05 21:43:20 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ t_push_swap *init_push_swap(int argc)
     ps = malloc(sizeof(t_push_swap));
     if (!ps)
         return (NULL);
+    ps->moved_index = 0;
     ps->stack_a = init_stack(capacity);
     if (!ps->stack_a)
     {

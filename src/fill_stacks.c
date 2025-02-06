@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 15:24:21 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/24 02:48:37 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/03 10:52:16 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void free_split(char **tokens)
 {
     size_t i; 
     i = 0;
+    if (!tokens)
+        return;
     while (tokens[i]) {
         free(tokens[i]);
         i++;
@@ -37,14 +39,14 @@ void process_arg(t_push_swap *ps, char *arg)
     {
         if (!is_valid(strs[i]))
         {
-            write(1, "Error\n", 7);
+            write(2, "Error\n", 6);
             free_split(strs);
             exit(EXIT_FAILURE);
         }
         num = ft_atoi(strs[i]);
         if (num < INT_MIN || num > INT_MAX || is_duplicate(ps, (int)num))
         {
-            write(1, "Error\n", 7);
+            write(2, "Error\n", 6);
             free_split(strs);
             exit(EXIT_FAILURE);
         }
