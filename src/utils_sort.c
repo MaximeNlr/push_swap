@@ -6,12 +6,11 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 19:18:39 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/06 17:06:31 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 20:41:31 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-// Cette fonction deplace le plus petit element a stack_b
 void move_smallest(t_push_swap *ps)
 {
     int smallest_index;
@@ -76,8 +75,6 @@ void move_smallest_chunk(t_push_swap *ps, int *moved)
         return;
     smallest_value = ps->stack_a->data[smallest_index];
     half_size = ps->stack_a->size / 2;
-        print_moved(moved, ps->stack_a->size);
-        printf("Valeur a trouver [%d]\n", smallest_value);
     if (smallest_index <= half_size)
     {
         while (ps->stack_a->data[0] != smallest_value)
@@ -90,13 +87,6 @@ void move_smallest_chunk(t_push_swap *ps, int *moved)
     }
     pb(ps);
     mark_as_moved(moved, ps, smallest_value);
-    
-    printf("Taille de a après pb [%d]\n", ps->stack_a->size);
-    printf("Après pb:\n");
-    printf("stack_a\n");
-    print_stack_a(ps);
-    printf("stack_b\n");
-    print_stack_b(ps);
 }
 
 int find_smallest_chunk(t_push_swap *ps, int *moved)

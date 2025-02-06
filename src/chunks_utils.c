@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:51:55 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/06 17:00:59 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 18:30:57 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void find_push_max(t_push_swap *ps)
     max_index = find_max_index(ps->stack_b);
     half = ps->stack_b->size / 2;
 
-    // Rotation optimale pour amener le max en haut de B
     if (max_index <= half)
     {
         while (ps->stack_b->data[0] != get_max_value(ps->stack_b))

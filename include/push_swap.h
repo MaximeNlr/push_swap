@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:50:08 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/06 17:05:14 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 20:50:09 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,42 +42,38 @@ void print_stack_b(t_push_swap *ps);
 void ft_putnbr_fd(int n, int fd);
 
 // Toutes les oprations sa, sb etc..
-void sa(t_push_swap *ps); // Intervertit les 2 premiers
-void sb(t_push_swap *ps);
-void ra(t_push_swap *ps); // Le premier devient le dernier
+void sa(t_push_swap *ps); // Intervertit les 2 premiers de stack_a
+void sb(t_push_swap *ps); 
+void ra(t_push_swap *ps); // le dernier devient le premier
 void rb(t_push_swap *ps);
-void rra(t_push_swap *ps); // Le dernier devient le premier.
+void rra(t_push_swap *ps);  // stack_a le dernier devient le premier
 void rrb(t_push_swap *ps);
 void pb(t_push_swap *ps); // Le premier element de b devient le premier de a.
-void pa(t_push_swap *ps); // Le premier element de a devient le premier de b.
+void pa(t_push_swap *ps);
 
 // tri des stacks
-void sort_2(t_push_swap *ps); // tri 2 nombres
-void sort_3(t_push_swap *ps); // tri 3 nombres
-void sort_5(t_push_swap *ps); // tri 5 nombres
-void sort(t_push_swap *ps); // tri > 5 nombres
-void move_smallest_chunk(t_push_swap *ps, int *moved); // Envoie le plus petit vers stack_b
-void move_smallest(t_push_swap *ps);
-int find_smallest(t_push_swap *ps);
-int find_smallest_chunk(t_push_swap *ps, int *moved); // Trouve le plus petit
-void print_moved(int *moved, int size);
-
-
-// divise la data de stack_a en plusieurs morceaux
-void move_chunk(t_push_swap *ps, int chunk_size, int *moved);
-int *init_moved(size_t size);
-void mark_as_moved(int *moved, t_push_swap *ps, int value);
-int already_moved(int *moved, int moved_index, int value);
+void sort_2(t_push_swap *ps); 
+void sort_3(t_push_swap *ps); 
+void sort_5(t_push_swap *ps); 
+void sort(t_push_swap *ps);
 
 //chunks utils
-void find_push_max(t_push_swap *ps);
-int get_max_value(t_stack *stack);
-int find_max_index(t_stack *stack);
+void find_push_max(t_push_swap *ps); // Envoie la valeur la plus grance vers stack_a
+int get_max_value(t_stack *stack); // Trouve la valeur la plus grande
+int find_max_index(t_stack *stack); // Trouve 
+void move_smallest_chunk(t_push_swap *ps, int *moved); // Envoie le plus petit vers stack_b
+void move_smallest(t_push_swap *ps);
+int find_smallest(t_push_swap *ps);// Trouve le plus petit 
+int find_smallest_chunk(t_push_swap *ps, int *moved); // Trouve le plus petit dans un chunk donné
+void move_chunk(t_push_swap *ps, int chunk_size, int *moved);
+int *init_moved(size_t size); // Initialise le pointeur moved
+void mark_as_moved(int *moved, t_push_swap *ps, int value); // Designe une valeur comme moved
+int already_moved(int *moved, int moved_index, int value); // Verifie si une valeur a déja été manipulé 
 
 // Verification de la confromité du stack
 int is_duplicate(t_push_swap *ps, int num); // Check si 2 chiffres sont similaire
 int is_valid(char *str); // Check si la chaine contient des chiffres apres le signe '-'
-int is_sorted(t_stack *stack); // Check si le stack est trié
+int is_sorted(t_stack *stack); 
 
 // Utils lié a la validation du stack
 int ft_isdigit(int c);
@@ -87,7 +83,7 @@ int ft_atoi(char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 
-// Fonction split
+// Fonction split 
 size_t count_token(char *str, char del);
 int	safe_malloc(char **tokens, int pos, size_t buffer);
 int fill_token(char **tokens, char *str, char del);
@@ -102,7 +98,6 @@ void free_stack(t_stack *stack);
 void free_push_swap(t_push_swap *ps);
 void free_split(char **tokens);
 
-// Fonction main
 int main(int argc, char **argv);
 
 #endif

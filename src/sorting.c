@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:54:47 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/06 17:04:09 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 18:31:22 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void sort(t_push_swap *ps)
     }
     while (ps->stack_b->size > 0)
     {
-        find_push_max(ps); // Trouve le max de B et le push dans A
+        find_push_max(ps);
     }
     free(moved);
 }

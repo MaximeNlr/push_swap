@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:54:53 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/04 22:13:24 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/06 18:37:01 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ int main(int argc, char **argv)
     }
     
     fill_stack_a(ps, argc, argv);
-    printf("Stack_a avant le tri\n");
-    print_stack_a(ps);
    
     if (is_sorted(ps->stack_a))
     {
