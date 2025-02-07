@@ -6,37 +6,36 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:49:17 by mneller           #+#    #+#             */
-/*   Updated: 2025/01/30 13:44:26 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:53:24 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int ft_atoi(char *str)
+int ft_atoi(const char *str)
 {
     long num = 0;
     int sign = 1;
 
-    while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\r' 
-        || *str == '\v' || *str == '\f')
-    {
+    while (*str == ' ' || *str == '\t' || *str == '\n'
+        || *str == '\r' || *str == '\v' || *str == '\f')
         str++;
-    }
     if (*str == '-' || *str == '+')
     {
         if (*str == '-')
             sign = -1;
-        if (*str == '+') 
-            sign = +1;
         str++;
     }
     while (*str >= '0' && *str <= '9')
     {
+        if (num > (INT_MAX - (*str - '0')) / 10) // ✅ Vérification d'overflow
+            return (sign == 1 ? INT_MAX : INT_MIN);
         num = num * 10 + (*str - '0');
         str++;
     }
-    return (num * sign);
+    return ((int)(num * sign));
 }
+
 
 int ft_isdigit(int c)
 {

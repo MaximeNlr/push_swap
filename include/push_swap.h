@@ -6,7 +6,7 @@
 /*   By: mneller <mneller@student.42nice.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 19:50:08 by mneller           #+#    #+#             */
-/*   Updated: 2025/02/06 20:50:09 by mneller          ###   ########.fr       */
+/*   Updated: 2025/02/07 10:47:52 by mneller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int is_sorted(t_stack *stack);
 int ft_isdigit(int c);
 size_t ft_strlen(char *str);
 size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
-int ft_atoi(char *str);
+int ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 
